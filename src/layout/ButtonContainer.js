@@ -4,7 +4,7 @@ import { list } from "../constants";
 
 const ButtonContainer = () => {
   return (
-    <div className="m-2">
+    <div className="">
       {list.map((item, idx) => (
         <Button key={idx} name={item} />
       ))}

@@ -35,5 +35,5 @@ export const list = [
 const GOOGLE_API_KEY = "AIzaSyA4xQGmfYNSoQnld21b88r6jwYq0KdjTl0";
 
 export const YOUTUBE_VIDEO_API =
-  "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=US&key=" +
+  "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&maxResults=50&chart=mostPopular&regionCode=US&key=" +
   GOOGLE_API_KEY;
