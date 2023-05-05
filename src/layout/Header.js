@@ -2,7 +2,9 @@ import React from "react";
 import { menu } from "../constants.js";
 import { logo } from "../constants.js";
 import { avatar } from "../constants.js";
-import { searchIcon } from "../constants.js";
+
+import { Link } from "react-router-dom";
+import SearchInput from "../components/SearchInput.js";
 
 const Header = () => {
   return (
@@ -10,17 +12,13 @@ const Header = () => {
       <div className="grid grid-flow-col mx-5">
         <div className="col-span-1 flex">
           <img alt="menu" src={menu} width={40} />
-          <img className="p-4" alt="logo" src={logo} width={120} />
+          <Link to={`/`}>
+            <img className="p-4" alt="logo" src={logo} width={120} />
+          </Link>
         </div>
 
         <div className="p-2 col-span-7">
-          <input
-            className="w-10/12 border border-gray-400 px-5 py-2 rounded-s-full"
-            type="text"
-          />
-          <button className="border border-gray-400 py-[12.5px] px-7 rounded-e-full bg-gray-100">
-            <img alt="search" src={searchIcon} width={14} />
-          </button>
+          <SearchInput />
         </div>
 
         <div className="col-span-4 flex justify-end">

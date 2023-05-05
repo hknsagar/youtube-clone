@@ -2,7 +2,6 @@ import React from "react";
 import { avatar } from "../constants";
 
 const VideoCard = ({ videoInfo = {} }) => {
-  console.log(videoInfo);
   const { snippet, statistics } = videoInfo || {};
   const { title, channelTitle, thumbnails } = snippet || {};
   return (
@@ -12,7 +11,6 @@ const VideoCard = ({ videoInfo = {} }) => {
         alt="thumbnail"
         src={thumbnails?.medium?.url}
         width="100%"
-        // style={{height: "100%"}}
       />
 
       <div className="flex gap-4">
