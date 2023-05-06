@@ -1,22 +1,37 @@
 import React, { useEffect, useState } from "react";
 import { YOUTUBE_SEARCH_API, searchIcon } from "../constants.js";
+import { useDispatch, useSelector } from "react-redux";
+import { cacheResults } from "../store/searchCacheSlice.js";
 
 const SearchInput = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const dispatch = useDispatch();
 
-  console.log(searchQuery);
+  const searchCacheResults = useSelector((store) => store.searchCache.results);
+
+  console.log(searchCacheResults);
 
   const getSearchSuggestions = async () => {
     const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
     const json = await data.json();
-    console.log(json[1]);
     setSuggestions((prev) => json[1]);
+
+    dispatch(cacheResults({ [searchQuery]: json[1] }));
   };
 
   useEffect(() => {
-    const timer = setTimeout(() => getSearchSuggestions(), 200);
+    let timer;
+    if (searchQuery !== "") {
+      timer = setTimeout(() => {
+        if (searchCacheResults[searchQuery]) {
+          setSuggestions((prev) => searchCacheResults[searchQuery]);
+        } else {
+          getSearchSuggestions();
+        }
+      }, 200);
+    }
 
     return () => {
       clearTimeout(timer);
@@ -40,7 +55,7 @@ const SearchInput = () => {
       {showSuggestions && suggestions.length !== 0 && (
         <div className="fixed bg-white rounded-xl mt-1 py-4 w-[46.5%] shadow hover:bg-grey-100 z-50">
           {suggestions.map((item) => (
-            <div className="px-4 py-1 hover:bg-gray-100 font-bold">
+            <div key={item} className="px-4 py-1 hover:bg-gray-100 font-bold">
               <span className="mr-4 ">
                 <img
                   className="inline-block"
