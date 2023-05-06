@@ -3,7 +3,7 @@ import { homeIcon, libraryIcon, shortsIcon, subscriptionsIcon } from "../constan
 
 const Sidebar = () => {
   return (
-    <div className="flex flex-col mx-3">
+    <div className=" mx-3 fixed top-12 w-[5%]">
       <div className="flex flex-col text-center mb-5">
         <div className="m-auto">
           <img alt="home" src={homeIcon} width={50} />

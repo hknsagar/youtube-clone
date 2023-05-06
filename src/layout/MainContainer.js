@@ -4,7 +4,7 @@ import ButtonContainer from "./ButtonContainer";
 
 const MainContainer = () => {
   return (
-    <div className="grid grid-cols-1 gap-5">
+    <div className="grid grid-cols-1 gap-5 w-[90%]">
       <ButtonContainer />
       <VideoContainer />
     </div>

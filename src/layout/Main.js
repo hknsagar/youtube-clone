@@ -4,10 +4,10 @@ import MainContainer from "./MainContainer";
 
 const Main = () => {
   return (
-    <div className="flex">
+    <>
       <Sidebar />
       <MainContainer />
-    </div>
+    </>
   );
 };
 

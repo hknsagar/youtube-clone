@@ -9,7 +9,7 @@ import SearchInput from "../components/SearchInput.js";
 const Header = () => {
   return (
     <>
-      <div className="grid grid-flow-col mx-5">
+      <div className="grid grid-flow-col px-5 fixed top-0 left-0 right-0 z-20 bg-white">
         <div className="col-span-1 flex">
           <img alt="menu" src={menu} width={40} />
           <Link to={`/`}>
