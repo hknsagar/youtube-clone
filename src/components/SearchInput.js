@@ -11,8 +11,6 @@ const SearchInput = () => {
 
   const searchCacheResults = useSelector((store) => store.searchCache.results);
 
-  console.log(searchCacheResults);
-
   const getSearchSuggestions = async () => {
     const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
     const json = await data.json();
@@ -31,6 +29,8 @@ const SearchInput = () => {
           getSearchSuggestions();
         }
       }, 200);
+    } else {
+      setSuggestions((prev) => []);
     }
 
     return () => {
