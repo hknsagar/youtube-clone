@@ -4,14 +4,14 @@ import CommentsContainer from "./CommentsContainer";
 
 const WatchPageContainer = () => {
   return (
-    <div className="grid grid-cols-8 gap-5 mx-7 mt-16 top-28">
-      <div className="col-span-5">
+    <div className="grid grid-cols-[63%_1fr] gap-6 mx-7 mt-16 top-28">
+      <div>
         <VideoPlayer />
       </div>
 
-      <div className="col-span-3">Playlist</div>
+      <div>Playlist</div>
 
-      <div className="col-span-5">
+      <div>
         <CommentsContainer />
       </div>
     </div>

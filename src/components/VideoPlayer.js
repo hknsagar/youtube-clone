@@ -7,7 +7,7 @@ const VideoPlayer = () => {
   return (
     <iframe
       width={`100%`}
-      height="400"
+      height="360"
       src={`https://www.youtube.com/embed/${searchParams.get("v")}`}
       title="YouTube video player"
       frameBorder="0"
